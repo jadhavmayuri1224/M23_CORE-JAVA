@@ -1,22 +1,31 @@
 package com.tns.recursion;
 
-public class SumOfDigit {
-	static int sum=0;
-	public static void accept(int i)
-	{
-		if(i<=10)
-		{
-			sum=sum+i;
-			accept(++i);
-		}
-	}
+import java.util.Scanner;
 
+public class SumOfDigit {
+  int sum=0;
 	public static void main(String[] args)
 	{
-		accept(1);
-		System.out.println(sum);
+		int n;
+		Scanner s=new Scanner(System.in);
+		System.out.print("Enter the number:");
+		n=s.nextInt();
+		SumOfDigit sod=new SumOfDigit();
+		int a=sod.add(n);
+		System.out.println("Sum:"+a);
 		
-
+	}
+	int add(int n)
+	{
+		sum=n%10;
+		if(n==0)
+		{
+			return 0;
+		}
+		else
+		{
+			return sum+add(n/10);
+		}
 	}
 
 }
